@@ -19,13 +19,13 @@ chmod 400 keys/ansible_key.pem
 
 ---
 
-### 3. 🧾 Update the host file or create if not present
-
+### 3. 🧾 Update the Ansible Hosts File (or create it if it doesn't exist)
+Open or create the hosts file:
 ```bash
 sudo vi /etc/ansible/hosts
 ```
 
-Add the following:
+Add your server IP addresses:
 
 ```ini
 [servers]
@@ -36,7 +36,7 @@ server_2 ansible_host=<your-ec2-public-ip-2>
 ansible_user=ec2-user
 ansible_ssh_private_key_file=/full/path/to/keys/ansible_key.pem
 ```
-
+👉 Replace <your-ec2-public-ip-1> and <your-ec2-public-ip-2> with your actual EC2 IP addresses. Ensure the path to your private key is absolute.
 ---
 
 ### 4. ✅ Verify Ansible Can Connect to Your Servers
@@ -62,7 +62,8 @@ If you see this output, your connection is successfully established!
 ---
 
 
-### 5. ▶️ Run the Playbook
+### 5. ▶️ Run the Ansible Playbook
+This playbook will deploy your custom webpage to the target EC2 instances. To run it, use the following command:
 
 ```bash
 ansible-playbook deploy_webpage.yml
@@ -72,4 +73,7 @@ ansible-playbook deploy_webpage.yml
 
 ### 6. 🌐 Check the Deployment
 
-Open your browser and enter the public IP of the target EC2 instance. You should see your custom webpage.
+Open your browser and navigate to the public IP of the EC2 instance(s).
+You should see your custom webpage live.
+
+
