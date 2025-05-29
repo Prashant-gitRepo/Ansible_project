@@ -8,9 +8,8 @@ ansible --version
 
 ---
 
-### 2. 🔑 Copy your key pair in main server
-Create a `keys` directory and paste your private key:
-
+### 2. 🔑 Copy your SSH key pair to the main server
+Create a `keys` directory and paste your **private SSH key** (used to connect to target EC2 instances):
 ```bash
 mkdir keys
 vi keys/ansible_key.pem
@@ -30,8 +29,8 @@ Add the following:
 
 ```ini
 [servers]
-server_1 ansible_host=<paste ec2 public ip>
-server_2 ansible_host=<paste ec2 public ip>
+server_1 ansible_host=<your-ec2-public-ip-1>
+server_2 ansible_host=<your-ec2-public-ip-2>
 
 [all:vars]
 ansible_user=ec2-user
@@ -40,21 +39,23 @@ ansible_ssh_private_key_file=/full/path/to/keys/ansible_key.pem
 
 ---
 
-### 4. ✅ Check Connection
+### 4. ✅ Verify Ansible Can Connect to Your Servers
 
-Run the following to test SSH and Ansible:
+
+Run the following command to test SSH and Ansible connectivity:
 
 ```bash
 ansible servers -m ping
 ```
-It show output like
-server-1 | SUCCESS => {
+You should see output similar to the following:
+server_1 | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python3.9"
     },
     "changed": false,
     "ping": "pong"
 }
+If you see this output, your connection is successfully established!
 
 ---
 
