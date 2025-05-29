@@ -1,4 +1,4 @@
-### 1. 🛠️ Install Ansible on Your Control Node (e.g., Amazon Linux EC2)
+### 1. 🛠️ Install Ansible on Your Ansible server (e.g., Amazon Linux EC2)
 
 ```bash
 sudo yum update -y
