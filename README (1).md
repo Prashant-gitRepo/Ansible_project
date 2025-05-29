@@ -47,6 +47,14 @@ Run the following to test SSH and Ansible:
 ```bash
 ansible servers -m ping
 ```
+It show output like
+server-1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
 
 ---
 
