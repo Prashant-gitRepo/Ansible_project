@@ -48,6 +48,7 @@ Run the following command to test SSH and Ansible connectivity:
 ansible servers -m ping
 ```
 You should see output similar to the following:
+```ini
 server_1 | SUCCESS => {
     "ansible_facts": {
         "discovered_interpreter_python": "/usr/bin/python3.9"
@@ -55,6 +56,7 @@ server_1 | SUCCESS => {
     "changed": false,
     "ping": "pong"
 }
+```
 If you see this output, your connection is successfully established!
 
 ---
