@@ -18,3 +18,5 @@
       copy:
         src: index.html
         dest: /usr/share/nginx/html/index.html
+~
+
