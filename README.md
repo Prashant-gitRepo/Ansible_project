@@ -132,6 +132,11 @@ This playbook will deploy your custom webpage to the target EC2 instances. To ru
 ```bash
 sudo ansible-playbook deploy_webpage.yml
 ```
+This will:
+
+Install and start Nginx
+
+Copy index.html to the web root
 
 ---
 
@@ -139,5 +144,17 @@ sudo ansible-playbook deploy_webpage.yml
 
 Open your browser and navigate to the public IP of the EC2 instance(s).
 You should see your custom webpage live.
+
+---
+
+## 📁 Project Structure
+Ansible_project/
+├── deploy_webpage.yml      # Ansible playbook to deploy the webpage
+├── index.html              # Webpage file to be deployed
+└── keys/
+    └── ansible_key.pem     # SSH private key (should be .gitignored)
+
+---
+
 
 
