@@ -38,12 +38,21 @@ Repeat the process for two additional instances:
 ---
 
 ### Step 3: 🛠️ Install Git and pull repository
-Install git and clone the repository files (index and playbook file)
+1. Install git and clone the repository files (index and playbook file)
 ```bash
 sudo yum update -y
 sudo yum install git -y
+```
+
+2. Clone the repository files (index and playbook file)
+```bash
 git clone https://github.com/Prashant-gitRepo/Ansible_project.git
+```
+
+3. Check files
+```bash
 cd Ansible_project
+ls
 ```
 
 ---
