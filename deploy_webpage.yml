@@ -1,6 +1,6 @@
 ---
 - name: Install nginx, start it, and deploy webpage
-  hosts: server
+  hosts: servers
   become: yes
   tasks:
     - name: Install nginx
