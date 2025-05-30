@@ -126,7 +126,7 @@ If you see this output, your connection is successfully established!
 ---
 
 
-### Step 7: ▶️ Run the Ansible Playbook
+### Step 8: ▶️ Run the Ansible Playbook
 This playbook will deploy your custom webpage to the target EC2 instances. To run it, use the following command:
 
 ```bash
@@ -140,7 +140,7 @@ Copy index.html to the web root
 
 ---
 
-### Step 8: 🌐 Check the Deployment
+### Step 9: 🌐 Check the Deployment
 
 Open your browser and navigate to the public IP of the EC2 instance(s).
 You should see your custom webpage live.
