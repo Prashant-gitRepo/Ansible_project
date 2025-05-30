@@ -84,7 +84,7 @@ server_2 ansible_host=<your-ec2-public-ip-2>
 ansible_user=ec2-user
 ansible_ssh_private_key_file=/full/path/to/keys/ansible_key.pem
 ```
-Replace <your-ec2-public-ip-1> and <your-ec2-public-ip-2> with your actual Ec2 Ip Addresses. Ensure the path to your private key is absolute. To check path use pwd command
+Replace (your-ec2-public-ip-1) and (your-ec2-public-ip-2) with your actual Ec2 Ip Addresses. Ensure the path to your private key is absolute. To check path use pwd command
 
 ---
 
