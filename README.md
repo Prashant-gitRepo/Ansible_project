@@ -1,6 +1,6 @@
 # Ansible Webpage Deployment on Other servers Guide
 
-This guide will walk you through setting up Ansible to deploy a webpage to your EC2 instances.
+This guide will walk you through setting up an Ansible environment to deploy a custom HTML webpage to target EC2 instances using an Ansible playbook.
 
 ---
 
@@ -43,12 +43,13 @@ Install git and clone the repository files (index and playbook file)
 sudo yum update -y
 sudo yum install git -y
 git clone https://github.com/Prashant-gitRepo/Ansible_project.git
+cd Ansible_project
 ```
 
 ---
 
 ### Step 4: 🛠️ Install Ansible on Your Main server (e.g., Amazon Linux EC2)
-
+Install Ansible:
 ```bash
 sudo yum install -y ansible
 ansible --version
@@ -57,18 +58,23 @@ ansible --version
 ---
 
 ### Step 5: 🔑 Copy your SSH key pair to the main server
-Create a `keys` directory and paste your **private SSH key** (used to connect to target EC2 instances):
+1. Create a directory for your key:
 ```bash
 sudo mkdir keys
 sudo vi keys/ansible_key.pem
-# Paste your downloaded private key here
+```
+
+2. Paste your private .pem key and save (used to connect to target EC2 instances):
+
+3. Set correct permissions:
+```bash
 sudo chmod 400 keys/ansible_key.pem
 ```
 
 ---
 
-### Step 6: 🧾 Update the Ansible Hosts File (or create it if it doesn't exist)
-Open or create the hosts file:
+### Step 6: 🧾 Inventory Configuration
+Edit Ansible's inventory file:
 ```bash
 sudo vi /etc/ansible/hosts
 ```
@@ -88,15 +94,15 @@ Replace (your-ec2-public-ip-1) and (your-ec2-public-ip-2) with your actual Ec2 I
 
 ---
 
-### Step 7:✅ Verify Ansible Can Connect to Your Servers
+### Step 7:✅ Test Ansible Connection
 
 
-Run the following command to test SSH and Ansible connectivity:
+1. Run the following command to test SSH and Ansible connectivity:
 
 ```bash
 sudo ansible servers -m ping
 ```
-You should see output similar to the following:
+2. You should see output similar to the following:
 ```ini
 server_1 | SUCCESS => {
     "ansible_facts": {
