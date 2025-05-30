@@ -36,28 +36,38 @@ Repeat the process for two additional instances:
 4. Save the **public IPs** of the test instances.
 
 ---
-### Step 3: 🛠️ Install Ansible on Your Main server (e.g., Amazon Linux EC2)
 
+### Step 3: 🛠️ Install Git and pull repository
+Install git and clone the repository files (index and playbook file)
 ```bash
 sudo yum update -y
+sudo yum install git -y
+git clone https://github.com/Prashant-gitRepo/Ansible_project.git
+```
+
+---
+
+### Step 4: 🛠️ Install Ansible on Your Main server (e.g., Amazon Linux EC2)
+
+```bash
 sudo yum install -y ansible
 ansible --version
 ```
 
 ---
 
-### Step 4: 🔑 Copy your SSH key pair to the main server
+### Step 5: 🔑 Copy your SSH key pair to the main server
 Create a `keys` directory and paste your **private SSH key** (used to connect to target EC2 instances):
 ```bash
-mkdir keys
-vi keys/ansible_key.pem
+sudo mkdir keys
+sudo vi keys/ansible_key.pem
 # Paste your downloaded private key here
-chmod 400 keys/ansible_key.pem
+sudo chmod 400 keys/ansible_key.pem
 ```
 
 ---
 
-### Step 5: 🧾 Update the Ansible Hosts File (or create it if it doesn't exist)
+### Step 6: 🧾 Update the Ansible Hosts File (or create it if it doesn't exist)
 Open or create the hosts file:
 ```bash
 sudo vi /etc/ansible/hosts
@@ -74,17 +84,17 @@ server_2 ansible_host=<your-ec2-public-ip-2>
 ansible_user=ec2-user
 ansible_ssh_private_key_file=/full/path/to/keys/ansible_key.pem
 ```
-Replace <your-ec2-public-ip-1> and <your-ec2-public-ip-2> with your actual Ec2 Ip Addresses. Ensure the path to your private key is absolute.
+Replace <your-ec2-public-ip-1> and <your-ec2-public-ip-2> with your actual Ec2 Ip Addresses. Ensure the path to your private key is absolute. To check path use pwd command
 
 ---
 
-### Step 6:✅ Verify Ansible Can Connect to Your Servers
+### Step 7:✅ Verify Ansible Can Connect to Your Servers
 
 
 Run the following command to test SSH and Ansible connectivity:
 
 ```bash
-ansible servers -m ping
+sudo ansible servers -m ping
 ```
 You should see output similar to the following:
 ```ini
@@ -105,7 +115,7 @@ If you see this output, your connection is successfully established!
 This playbook will deploy your custom webpage to the target EC2 instances. To run it, use the following command:
 
 ```bash
-ansible-playbook deploy_webpage.yml
+sudo ansible-playbook deploy_webpage.yml
 ```
 
 ---
