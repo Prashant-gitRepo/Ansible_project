@@ -148,12 +148,13 @@ You should see your custom webpage live.
 ---
 
 ## 📁 Project Structure
+```
 Ansible_project/
 ├── deploy_webpage.yml      # Ansible playbook to deploy the webpage
 ├── index.html              # Webpage file to be deployed
 └── keys/
     └── ansible_key.pem     # SSH private key (should be .gitignored)
-
+```
 ---
 
 
